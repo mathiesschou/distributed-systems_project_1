@@ -41,8 +41,8 @@ The repository is organized as follows:
 ## Installation and Setup (for now)
 1. Clone the repository:
     ```bash
-    git clone https://github.com/<your-group>/<repo-name>.git
-    cd <repo-name>
+    git clone https://github.com/mathiesschou/distributed-systems_project_1.git
+    cd <distributed-systems_project_1>
     ```
 
 2. Install the necessary Python dependencies:
