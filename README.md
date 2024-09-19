@@ -18,3 +18,17 @@ The Bully Election Algorithm operates as follows:
    
 The algorithm is effective but may generate a high volume of messages, particularly in large distributed systems.
 
+## Project Structure
+The repository is organized as follows:
+
+- `/src`: Contains the Python source code for both the original and improved versions of the Bully Election algorithm.
+- `/tests`: Unit tests and system tests for verifying the correctness of the algorithms.
+
+## Requirements
+- **Python 3.x**
+- **Pytest**
+
+## To set up the project
+
+To be continued..
+
