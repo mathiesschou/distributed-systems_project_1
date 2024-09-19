@@ -1,5 +1,7 @@
 # Bully Election Algorithm - Distributed Systems Project
 
+**This project is ongoing and this README will be updated periodically.**
+
 This project is part of the Distributed Systems course in the 5th semester of Computer Science. It is a collaborative effort by:
 - Amad
 - Alan
@@ -27,7 +29,7 @@ The algorithm is effective but may generate a high volume of messages, particula
 ## Project Structure (for now)
 The repository is organized as follows:
 
-- `/docs`: Contains the UML diagrams made in draw.io in the design phase.
+- `/docs`: Contains the UML diagrams made in draw.io in the design phase, files, and (future) references. 
 - `/src`: Contains the Python source code for both the original and improved versions of the Bully Election algorithm.
 - `/tests`: Unit tests and system tests for verifying the correctness of the algorithms.
 
@@ -35,7 +37,7 @@ The repository is organized as follows:
 - **Python 3.x**
 - **Pytest 8.3.3**
 
-## VS Code extensions for UML-diagrams
+## VS Code extensions for viewing the UML-diagrams
 - **Draw.io Integration v1.6.6 or later**
 
 ## Installation and Setup (for now)
@@ -50,13 +52,13 @@ The repository is organized as follows:
     pip install -r requirements.txt
     ```
 
-3. To run the original Bully Election algorithm:
+3. To run the simplified Bully Election algorithm:
     ```bash
-    python src/simple_bully_election.py
+    python src/v1_0/bully_algorithm_v1_0.py
     ```
 
 ## Running the Tests
-1. Running `simple_bully_algorithm_test.py` from root:
+1. Running `bully_algorithm_test_v1_0.py` from root:
     ```bash
     pytest
     ```

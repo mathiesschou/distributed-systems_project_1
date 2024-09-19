@@ -1,9 +1,9 @@
 import sys
 import os
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/v1_0')))
 
-from src.simple_bully_algorithm import Node
+from src.v1_0.bully_algorithm_v1_0 import Node
 
 def setup_module(module):
     """ Setup """
