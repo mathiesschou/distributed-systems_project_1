@@ -58,7 +58,7 @@ The repository is organized as follows:
     ```
 
 ## Running the Tests
-1. Running `bully_algorithm_test_v1_0.py` from root:
+1. Running `test_bully_algorithm_v1_0.py` from root:
     ```bash
     pytest
     ```
