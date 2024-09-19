@@ -42,7 +42,7 @@ The repository is organized as follows:
 1. Clone the repository:
     ```bash
     git clone https://github.com/mathiesschou/distributed-systems_project_1.git
-    cd <distributed-systems_project_1>
+    cd distributed-systems_project_1
     ```
 
 2. Install the necessary Python dependencies:
