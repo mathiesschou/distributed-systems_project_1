@@ -28,6 +28,7 @@ class Node:
         print(f"Node {self.node_id} becomes the leader.")
 
 # Simple simulation
+'''
 def simulate():
     # Create a list of nodes with IDs 1 to 5
     nodes = [Node(i, []) for i in range(1, 6)]
@@ -42,7 +43,8 @@ def simulate():
     for node in nodes[1:]:
         node.start_election()
         if node.is_leader:
-            break
+            break 
+'''
 
 if __name__ == "__main__":
     simulate()
