@@ -27,12 +27,13 @@ The algorithm is effective but may generate a high volume of messages, particula
 ## Project Structure (for now)
 The repository is organized as follows:
 
+- `/docs`: Contains the UML diagrams made in draw.io in the design phase.
 - `/src`: Contains the Python source code for both the original and improved versions of the Bully Election algorithm.
 - `/tests`: Unit tests and system tests for verifying the correctness of the algorithms.
 
 ## Requirements
 - **Python 3.x**
-- **Pytest**
+- **Pytest 8.3.3**
 
 ## VS Code extensions for UML-diagrams
 - **Draw.io Integration v1.6.6 or later**
@@ -55,7 +56,7 @@ The repository is organized as follows:
     ```
 
 ## Running the Tests
-1. Running `simple_bully_algorithm_test.py` froom root:
+1. Running `simple_bully_algorithm_test.py` from root:
     ```bash
     pytest
     ```
