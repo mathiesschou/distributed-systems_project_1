@@ -1,5 +1,11 @@
 # Bully Election Algorithm - Distributed Systems Project
 
+This project is part of the Distributed Systems course in the 5th semester of Computer Science. It is a collaborative effort by:
+- Amad
+- Alan
+- Mohammed
+- Mathies
+
 ## Project Overview
 This project focuses on implementing and optimizing the **Bully Election Algorithm** for leader election in distributed systems. Leader election is crucial for many distributed systems, where a single node or process must act as the leader to coordinate tasks. The project involves designing, implementing, verifying, and comparing:
 
@@ -18,7 +24,7 @@ The Bully Election Algorithm operates as follows:
    
 The algorithm is effective but may generate a high volume of messages, particularly in large distributed systems.
 
-## Project Structure
+## Project Structure (for now)
 The repository is organized as follows:
 
 - `/src`: Contains the Python source code for both the original and improved versions of the Bully Election algorithm.
@@ -28,7 +34,29 @@ The repository is organized as follows:
 - **Python 3.x**
 - **Pytest**
 
-## To set up the project
+## VS Code extensions for UML-diagrams
+- **Draw.io Integration v1.6.6 or later**
 
-To be continued..
+## Installation and Setup (for now)
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/<your-group>/<repo-name>.git
+    cd <repo-name>
+    ```
+
+2. Install the necessary Python dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+3. To run the original Bully Election algorithm:
+    ```bash
+    python src/simple_bully_election.py
+    ```
+
+## Running the Tests
+1. Running `simple_bully_algorithm_test.py` froom root:
+    ```bash
+    pytest
+    ```
 
