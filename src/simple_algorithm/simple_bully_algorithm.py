@@ -1,4 +1,4 @@
-class Node:
+class SimpleBullyAlgorithm:
     def __init__(self, node_id, nodes):
         self.node_id = node_id
         self.nodes = nodes # List for knowing other nodes
@@ -28,10 +28,9 @@ class Node:
         print(f"Node {self.node_id} becomes the leader.")
 
 # Simple simulation
-'''
 def simulate():
     # Create a list of nodes with IDs 1 to 5
-    nodes = [Node(i, []) for i in range(1, 6)]
+    nodes = [SimpleBullyAlgorithm(i, []) for i in range(1, 6)]
 
     # Let each node know about the others
     for node in nodes:
@@ -44,7 +43,6 @@ def simulate():
         node.start_election()
         if node.is_leader:
             break 
-'''
 
 if __name__ == "__main__":
     simulate()

@@ -3,12 +3,12 @@ import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
 
-from src.v1_0.bully_algorithm_v1_0 import Node
+from src.simple_algorithm.simple_bully_algorithm import SimpleBullyAlgorithm
 
 def setup_module(module):
     """ Setup """
     global nodes
-    nodes = [Node(i, []) for i in range(1, 6)]
+    nodes = [SimpleBullyAlgorithm(i, []) for i in range(1, 6)]
     for node in nodes:
         node.nodes = nodes
 
