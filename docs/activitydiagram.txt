@@ -1,0 +1,30 @@
+---
+config:
+  layout: fixed
+---
+flowchart TD
+    start(["Start"]) --> detect_failure{"Detect Leader Failure?"}
+    detect_failure -- Yes --> election_msg{"Send Election Message to Higher Nodes?"}
+    detect_failure -- No --> stop(["End"])
+    election_msg --> response_received{"<span style="color: rgb(0, 0, 0);">Receive Response from Higher Node?</span><br>"}
+    response_received -- Yes --> wait_for_leader["Wait for Leader to be Announced"]
+    response_received -- No --> become_leader["Become Leader"]
+    wait_for_leader --> new_leader{"New Leader Elected?"}
+    new_leader -- Yes --> stop
+    new_leader -- No --> declare_leader["Announce Self as Leader"]
+    declare_leader --> stop
+    become_leader --> declare_leader
+     start:::largeText
+     detect_failure:::largeText
+     election_msg:::largeText
+     stop:::largeText
+     response_received:::largeText
+     wait_for_leader:::largeText
+     become_leader:::largeText
+     new_leader:::largeText
+     declare_leader:::largeText
+    classDef largeText font-size:24px
+    style detect_failure stroke-width:4px,stroke-dasharray: 0
+    style election_msg stroke-width:4px,stroke-dasharray: 0
+    style response_received stroke-width:4px,stroke-dasharray: 0,color:#000000
+    style new_leader stroke-width:4px,stroke-dasharray: 0
