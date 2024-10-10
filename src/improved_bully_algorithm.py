@@ -27,7 +27,8 @@ class Node:
         
         print(f"Node {self.node_id} received {message} from Node {sender.node_id}")
         if message == "Election":
-            print(f"Node {self.node_id} handling Election message from Node {sender.node_id}")
+            self.election_in_progress = True
+            #print(f"Node {self.node_id} handling Election message from Node {sender.node_id}")
 
             # NEW condition Only respond with OK if this is the first Election message, and no higher node is known
 
@@ -122,21 +123,21 @@ def test_original_algorithm(node_count):
         node.nodes = nodes  # Set the nodes list for each node
 
     # Simulate a leader failure
-    nodes[0].become_leader()  # Assume the first node is the leader
-    nodes[0].fail_node()  # Fail the leader
-
-
+    nodes[4].become_leader()  # Assume the first node is the leader
+    nodes[4].fail_node()  # Fail the leader
 
     start_time = time.time()
     for node in nodes:
-        node.check_leader_status()  # Check for leader status and initiate election if needed
+       node.check_leader_status()  # Check for leader status and initiate election if needed
     end_time = time.time()
 
     messages_sent = sum([len(node.sent_messages) for node in nodes])
     execution_time = end_time - start_time
+    
+    
 
-    print(f"Original Algorithm: Node Count: {node_count}, Messages Sent: {messages_sent}, Execution Time: {execution_time:.2f} seconds")
+    print(f"Improved Algorithm: Node Count: {node_count}, Messages Sent: {messages_sent}, Execution Time: {execution_time:.2f} seconds")
 
 # Test with different node counts
 
-test_original_algorithm(10)
+test_original_algorithm(5)

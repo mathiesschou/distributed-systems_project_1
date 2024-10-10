@@ -3,7 +3,7 @@
 **This project is ongoing and this README will be updated periodically.**
 
 This project is part of the Distributed Systems course in the 5th semester of Computer Science. It is a collaborative effort by:
-- Amad
+- Ahmad
 - Alan
 - Mohammed
 - Mathies

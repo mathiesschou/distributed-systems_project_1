@@ -2,12 +2,10 @@ import unittest
 import sys
 import os
 from time import sleep
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from original_bully_algorithm import Node
 
-# Add the `src` directory to sys.path for import purposes
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
 
-# Import the Node class from the original_bully_algorithm module
-from original_bully_algorithm.original_bully_algorithm import Node
 
 class TestBullyAlgorithm(unittest.TestCase):
     def setUp(self):
@@ -61,7 +59,15 @@ class TestBullyAlgorithm(unittest.TestCase):
         # The expected leader is node 4, since node 5 has failed
         self.assertTrue(self.nodes[3].is_leader, "Node 4 should be the leader")
         self.assertFalse(self.nodes[4].is_leader, "Node 5 should not be the leader because it has failed")
+    
 
+
+
+
+
+    
+
+    
     def test_simultaneous_elections(self):
         """Test simultaneous leader elections."""
         print("\nStarting test: test_simultaneous_elections")

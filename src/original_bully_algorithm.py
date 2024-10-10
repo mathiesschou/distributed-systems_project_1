@@ -26,9 +26,7 @@ class Node:
         if message == "Election":
             print(f"Node {self.node_id} handling Election message from Node {sender.node_id}")
             if not self.election_in_progress:
-                # Send OK message back to the sender
                 self.send_message("OK", sender)
-                # Start its own election process if it's not already in progress
                 self.start_election()
 
         elif message == "OK":
@@ -93,7 +91,7 @@ class Node:
 
     def check_leader_status(self):
         """Check if the current leader is still active. If not, start a new election.""" 
-        if   not any(node.is_leader and   node.active for node in self.nodes):
+        if  not any(node.is_leader and   node.active for node in self.nodes):
             print(f"Node {self.node_id} detects that there is no active leader. Starting a new election.") 
             self.start_election()
 
