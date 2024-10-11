@@ -60,6 +60,11 @@ class TestBullyAlgorithm(unittest.TestCase):
         self.assertTrue(self.nodes[3].is_leader, "Node 4 should be the leader")
         self.assertFalse(self.nodes[4].is_leader, "Node 5 should not be the leader because it has failed")
     
+
+
+
+
+
     
 
     

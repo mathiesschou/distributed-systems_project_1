@@ -24,36 +24,31 @@ class Node:
         """Handle the receipt of various types of messages."""
         if not self.active:
             return
-        
-        print(f"Node {self.node_id} received {message} from Node {sender.node_id}")
-        if message == "Election":
-            self.election_in_progress = True
-            #print(f"Node {self.node_id} handling Election message from Node {sender.node_id}")
+        else:
+            print(f"Node {self.node_id} received {message} from Node {sender.node_id}")
+            if message == "Election":
+                self.election_in_progress = True     
+                # NEW condition Only respond with OK if this is the first Election message, and no higher node is known
+                if not self.election_in_progress and not self.knows_higher_active:
+                    self.send_message("OK", sender)
+                    self.start_election()
 
-            # NEW condition Only respond with OK if this is the first Election message, and no higher node is known
-
-            if not self.election_in_progress and not self.knows_higher_active:
-                # Send OK message back to the sender
-                self.send_message("OK", sender)
-                # Start its own election process if it's not already in progress
-                self.start_election()
-
-        elif message == "OK":
-            print(f"Node {self.node_id} received OK message from Node {sender.node_id}")
-            self.has_received_ok = True
-            self.knows_higher_active = True  # A higher node is active
+            elif message == "OK":
+                print(f"Node {self.node_id} received OK message from Node {sender.node_id}")
+                self.has_received_ok = True
+                self.knows_higher_active = True  # A higher node is active
 
 
-        elif message == "Coordinator":
-            print(f"Node {self.node_id} received Coordinator message from Node {sender.node_id}")
-            self.is_leader = False
-            self.election_in_progress = False
-            print(f"Node {self.node_id} recognizes Node {sender.node_id} as the leader")
+            elif message == "Coordinator":
+                print(f"Node {self.node_id} received Coordinator message from Node {sender.node_id}")
+                self.is_leader = False
+                self.election_in_progress = False
+                print(f"Node {self.node_id} recognizes Node {sender.node_id} as the leader")
 
-        # If in election, terminate the election process
-        if self.election_in_progress and message == "Coordinator":
-            print(f"Node {self.node_id} ends its election process due to Coordinator message.")
-            self.election_in_progress = False
+            # If in election, terminate the election process
+            if self.election_in_progress and message == "Coordinator":
+                print(f"Node {self.node_id} ends its election process due to Coordinator message.")
+                self.election_in_progress = False
 
     def start_election(self):
         """Start the election process using time-based waiting."""
@@ -117,14 +112,12 @@ class Node:
 
 
 
-def test_original_algorithm(node_count):
+def test_algorithm(node_count):
     nodes = [Node(i, []) for i in range(1, node_count + 1)]
     for node in nodes:
         node.nodes = nodes  # Set the nodes list for each node
-
-    # Simulate a leader failure
-    nodes[4].become_leader()  # Assume the first node is the leader
-    nodes[4].fail_node()  # Fail the leader
+    nodes[0].become_leader()  # Assume the first node is the leader
+    nodes[0].fail_node()  # Fail the leader
 
     start_time = time.time()
     for node in nodes:
@@ -133,11 +126,8 @@ def test_original_algorithm(node_count):
 
     messages_sent = sum([len(node.sent_messages) for node in nodes])
     execution_time = end_time - start_time
-    
-    
+
 
     print(f"Improved Algorithm: Node Count: {node_count}, Messages Sent: {messages_sent}, Execution Time: {execution_time:.2f} seconds")
 
-# Test with different node counts
-
-test_original_algorithm(5)
+test_algorithm(12)
